@@ -1,0 +1,7 @@
+-------------------------------------------------------------------------------
+Test set: EMPTY_NAME
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.21 s <<< FAILURE! - in EMPTY_NAME
+EMPTY_NAME.Consulta mascota  Time elapsed: 0.21 s  <<< ERROR!
+java.lang.NullPointerException
+

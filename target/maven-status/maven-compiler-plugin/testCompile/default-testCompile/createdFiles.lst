@@ -1,0 +1,9 @@
+com\nttdata\CucumberTestSuite.class
+com\nttdata\model\Articulo.class
+com\nttdata\steps\ArticuloStep.class
+com\nttdata\steps\CrearUsuario.class
+com\nttdata\glue\CrearUsuarioStepsDefs.class
+com\nttdata\glue\PetStoreStefDef.class
+com\nttdata\glue\TestStepDef.class
+com\nttdata\glue\ArticuloStepDef.class
+com\nttdata\steps\TestStep.class
