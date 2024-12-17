@@ -34,6 +34,11 @@ public class PetStoreStefDef {
     @And("valio el nombre de la mscota sea {string}")
     public void valioElNombreDeLaMscotaSea(String nombreMascota) {
         tienda.validarMascota(nombreMascota);
-       // Assert.assertEquals("La mascota es: ",nombre, response."Pitbull");
+
+    }
+
+    @When("creo nueva mascota con ID {string} nombre {string}  y estado {string}")
+    public void creoNuevaMascotaConIDNombreYEstado(String id, String nombre, String estado) {
+        tienda.crearMascota(id, nombre, estado);
     }
 }

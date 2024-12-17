@@ -29,6 +29,25 @@ public class PetStoreStep {
     }
 
     public void validarMascota(String nombreMascota) {
+        // Assert.assertEquals("La mascota es: ",nombre, response."Pitbull");
+    }
+
+    public void crearMascota(String id, String nombre, String estado) {
+        String body = "{\n" +
+                "  \"id\":\""+id+"\",\n" +
+                "  \"name\": \""+nombre+"\",\n" +
+                "  \"status\": \""+estado+"\"\n" +
+                "}";
+        response = RestAssured
+                .given()
+                .baseUri(URL_BASE)
+                .header("Content-Type", "application/json")
+                .body(body)
+                .log().all()
+                .post("/pet")
+                .then()
+                .log().all()
+                .extract().response();
 
     }
 }
