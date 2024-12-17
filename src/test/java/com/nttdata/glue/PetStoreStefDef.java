@@ -16,14 +16,13 @@ public class PetStoreStefDef {
 
     @Given("la url es {string}")
     public void laUrlEs(String url) {
-
         tienda.definirURL(url);
-
     }
-    @When("consulto la mascota con ID {string}")
-    public void consultoLaMascotaConID(String idMascota) {
-        tienda.consultarMacota(idMascota);
 
+
+    @When("nuevo pedido con ID {string} pedID {string}  y quantity {string}")
+    public void nuevoPedidoConIDPedIDYQuantity(String id, String petID, String quantity) {
+        tienda.crearPedido(id, petID, quantity);
     }
 
     @Then("valido el codigo de respuesta sea {int}")
@@ -31,14 +30,9 @@ public class PetStoreStefDef {
         tienda.validacionRespuesta(statuscode);
     }
 
-    @And("valio el nombre de la mscota sea {string}")
-    public void valioElNombreDeLaMscotaSea(String nombreMascota) {
-        tienda.validarMascota(nombreMascota);
 
-    }
-
-    @When("creo nueva mascota con ID {string} nombre {string}  y estado {string}")
-    public void creoNuevaMascotaConIDNombreYEstado(String id, String nombre, String estado) {
-        tienda.crearMascota(id, nombre, estado);
+    @When("consulto la mascota con oderID {string}")
+    public void consultoLaMascotaConOderID(String orderID) {
+        tienda.consultarPedido(orderID);
     }
 }

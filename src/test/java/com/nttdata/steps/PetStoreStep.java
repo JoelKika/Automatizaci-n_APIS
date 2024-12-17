@@ -11,32 +11,11 @@ public class PetStoreStep {
         URL_BASE = url;
     }
 
-    public void consultarMacota(String idMascota) {
-        response =  RestAssured
-                .given()
-                .relaxedHTTPSValidation()
-                .baseUri(URL_BASE)
-                .log().all()
-                .get("/pet/"+idMascota)
-                .then()
-                .log().all()
-                .extract().response();
-    }
-
-    public void validacionRespuesta(int statuscode) {
-        Assert.assertEquals("Validación de respuesta: ",statuscode, response.statusCode());
-        //System.out.println("Codigo de respuesta: "+response.statusCode());
-    }
-
-    public void validarMascota(String nombreMascota) {
-        // Assert.assertEquals("La mascota es: ",nombre, response."Pitbull");
-    }
-
-    public void crearMascota(String id, String nombre, String estado) {
+    public void crearPedido(String id, String petID, String quantity) {
         String body = "{\n" +
-                "  \"id\":\""+id+"\",\n" +
-                "  \"name\": \""+nombre+"\",\n" +
-                "  \"status\": \""+estado+"\"\n" +
+                "  \"id\": " + id + ",\n" +
+                "  \"petId\": " + petID + ",\n" +
+                "  \"quantity\": " + quantity + "\n" +
                 "}";
         response = RestAssured
                 .given()
@@ -44,10 +23,25 @@ public class PetStoreStep {
                 .header("Content-Type", "application/json")
                 .body(body)
                 .log().all()
-                .post("/pet")
+                .post("/store/order")
                 .then()
                 .log().all()
                 .extract().response();
+    }
 
+    public void validacionRespuesta(int statuscode) {
+        Assert.assertEquals("Validación de respuesta: ",statuscode, response.statusCode());
+
+    }
+
+    public void consultarPedido(String orderID) {
+        response =  RestAssured
+                .given()
+                .baseUri(URL_BASE)
+                .log().all()
+                .get("/store/order/"+orderID)
+                .then()
+                .log().all()
+                .extract().response();
     }
 }
